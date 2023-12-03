@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:controller="taroapp.taro.threeCard.ThreeCardController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="navPane" layoutX="17.0" layoutY="12.0" prefHeight="50.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="typeLabel" alignment="CENTER" layoutX="350.0" layoutY="23.0" prefHeight="20.0" prefWidth="100.0" text="Label" textAlignment="CENTER" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="tripleTypeChooseBox" layoutX="667.0" layoutY="20.0" prefWidth="150.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+            <MenuButton fx:id="typeChoose" mnemonicParsing="false" text="Выбор типа" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <items>
+                  <MenuItem fx:id="soloCardMenu" onAction="#openOneCardPage" mnemonicParsing="false" text="Одна карта" />
+                  <MenuItem fx:id="threeCardMenu" mnemonicParsing="false" text="Три карты" />
+               </items>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+      <Pane fx:id="firstCard" layoutX="27.0" layoutY="81.0" prefHeight="300.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="100.0" />
+      <Pane fx:id="secondCard" layoutX="242.0" layoutY="81.0" prefHeight="300.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="100.0" />
+      <Pane fx:id="thirdCard" layoutX="465.0" layoutY="81.0" prefHeight="300.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="100.0" />
+      <Text fx:id="cardDesc" layoutX="823.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Описание карты" wrappingWidth="262.13671875" AnchorPane.bottomAnchor="384.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="100.0" />
+      <Button fx:id="makePredBtn" layoutX="470.0" layoutY="453.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Расклад" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
