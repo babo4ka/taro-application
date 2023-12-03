@@ -53,11 +53,11 @@ public class OneCardController implements Initializable {
     private Button resetBtn;
 
 
+    private CardsManager cardsManager;
     private Stream<Card> cardsStream;
 
     private void getCardsStream(){
-        CardsManager cm = CardsManager.getInstance();
-        cardsStream = cm.getCardsAsStream();
+        cardsStream = cardsManager.getCardsAsStream();
     }
 
     @FXML
@@ -84,6 +84,8 @@ public class OneCardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        cardsManager = CardsManager.getInstance();
+
         getCardsStream();
     }
 }
