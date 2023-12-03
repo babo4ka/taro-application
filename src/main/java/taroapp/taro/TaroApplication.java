@@ -10,6 +10,9 @@ import java.io.IOException;
 public class TaroApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        CardsManager cm = CardsManager.getInstance();
+        cm.loadCards();
+
         FXMLLoader fxmlLoader = new FXMLLoader(TaroApplication.class.getResource("SoloCardPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         stage.setTitle("Одна карта");
