@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taroapp.taro.oneCard.OneCardController">
+<AnchorPane fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taroapp.taro.oneCard.OneCardController">
    <children>
       <AnchorPane fx:id="navPane" layoutX="7.0" layoutY="2.0" prefHeight="50.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="typeLabel" alignment="CENTER" layoutX="350.0" layoutY="23.0" prefHeight="20.0" prefWidth="200.0" text="Гадание по одной карте" textAlignment="CENTER" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="20.0">
+            <Label fx:id="typeLabel" alignment="CENTER" layoutX="350.0" layoutY="23.0" prefHeight="20.0" prefWidth="200.0" text="Гадание по одной карте" textAlignment="CENTER" textFill="#fffafa" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -41,7 +41,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Text fx:id="choosedCardDesc" layoutX="454.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Описание карты" wrappingWidth="411.13671875" AnchorPane.bottomAnchor="383.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="100.0" />
+      <Text fx:id="choosedCardDesc" fill="WHITE" layoutX="454.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Описание карты" wrappingWidth="411.13671875" AnchorPane.bottomAnchor="383.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="100.0" />
       <Button fx:id="resetBtn" layoutX="553.0" layoutY="455.0" mnemonicParsing="false" onAction="#resetCards" prefHeight="25.0" prefWidth="123.0" text="Сброс" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="150.0">
          <font>
             <Font name="System Bold" size="12.0" />
