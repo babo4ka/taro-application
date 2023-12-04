@@ -152,9 +152,15 @@ public class ThreeCardController implements Initializable {
     @FXML
     private void switchType(ActionEvent event) throws MalformedURLException {
         switch (((MenuItem)event.getSource()).getId()){
-            case "ppfChoose" -> mode = 0;
+            case "ppfChoose" -> {
+                mode = 0;
+                typeLabel.setText("Прошлое - настоящее - будущее");
+            }
 
-            case "ynChoose" -> mode = 1;
+            case "ynChoose" -> {
+                mode = 1;
+                typeLabel.setText("Да / Нет");
+            }
         }
         resetCards();
     }
@@ -173,6 +179,7 @@ public class ThreeCardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cardsManager = CardsManager.getInstance();
+        typeLabel.setText("Прошлое - настоящее - будущее");
 
         try {
             resetCards();
