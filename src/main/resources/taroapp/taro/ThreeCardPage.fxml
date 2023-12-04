@@ -10,8 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane fx:controller="taroapp.taro.threeCard.ThreeCardController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taroapp.taro.threeCard.ThreeCardController">
    <children>
       <AnchorPane fx:id="navPane" layoutX="17.0" layoutY="12.0" prefHeight="50.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -23,7 +22,7 @@
             <ComboBox fx:id="tripleTypeChooseBox" layoutX="667.0" layoutY="20.0" prefWidth="150.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
             <MenuButton fx:id="typeChoose" mnemonicParsing="false" text="Выбор типа" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
                <items>
-                  <MenuItem fx:id="soloCardMenu" onAction="#openOneCardPage" mnemonicParsing="false" text="Одна карта" />
+                  <MenuItem fx:id="soloCardMenu" mnemonicParsing="false" text="Одна карта" />
                   <MenuItem fx:id="threeCardMenu" mnemonicParsing="false" text="Три карты" />
                </items>
             </MenuButton>

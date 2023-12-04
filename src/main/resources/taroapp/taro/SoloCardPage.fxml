@@ -26,7 +26,7 @@
             </MenuButton>
          </children>
       </AnchorPane>
-      <Button fx:id="prevCardBtn" layoutX="28.0" layoutY="455.0" mnemonicParsing="false" text="Предыдущая" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="28.0">
+      <Button fx:id="prevCardBtn"  layoutX="28.0" layoutY="455.0" mnemonicParsing="false" text="Предыдущая" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="28.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -42,7 +42,7 @@
          </font>
       </Button>
       <Text fx:id="choosedCardDesc" layoutX="454.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Описание карты" wrappingWidth="411.13671875" AnchorPane.bottomAnchor="383.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="100.0" />
-      <Button fx:id="resetBtn" layoutX="553.0" layoutY="455.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="123.0" text="Сброс" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="150.0">
+      <Button fx:id="resetBtn" onAction="#resetCards" layoutX="553.0" layoutY="455.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="123.0" text="Сброс" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="150.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

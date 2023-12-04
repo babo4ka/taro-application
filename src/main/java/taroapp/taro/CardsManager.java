@@ -25,8 +25,6 @@ public class CardsManager {
         for(File f : descsDir.listFiles()){
             createCard(f);
         }
-
-        getCardsAsStream().forEach(card -> System.out.println(card.toString()));
     }
 
     private void createCard(File descriptionFile) throws IOException {
@@ -62,7 +60,7 @@ public class CardsManager {
 
     private List<Card> cardsLsit = new ArrayList<>();
 
-    public Stream<Card> getCardsAsStream(){
-        return cardsLsit.stream();
+    public List<Card> getCards(){
+        return cardsLsit;
     }
 }

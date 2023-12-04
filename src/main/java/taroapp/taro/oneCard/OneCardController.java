@@ -5,12 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import taroapp.taro.Card;
@@ -21,8 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.stream.Stream;
+import java.util.*;
 
 public class OneCardController implements Initializable {
 
@@ -54,22 +53,47 @@ public class OneCardController implements Initializable {
 
 
     private CardsManager cardsManager;
-    private Stream<Card> cardsStream;
+    private List<Card> loadedCards;
 
-    private void getCardsStream(){
-        cardsStream = cardsManager.getCardsAsStream();
+    private List<Card> currentCards = new ArrayList<>();
+    private Iterator<Card> cardIterator;
+
+    private File image_file;
+    private Image image;
+
+    @FXML
+    private void resetCards() throws MalformedURLException {
+        loadedCards = cardsManager.getCards();
+        Collections.shuffle(loadedCards);
+
+        currentCards = new ArrayList<>();
+        cardIterator = loadedCards.iterator();
+
+        image_file = new File("src/main/resources/cards_imgs/no_card.jpg");
+        image = new Image(image_file.toURI().toURL().toString());
+        imagePane.setImage(image);
+        choosedCardDesc.setText("Здесь будет описание карты");
     }
 
     @FXML
     private void getNextCard() throws MalformedURLException {
-        Card card = cardsStream.findFirst().get();
-        choosedCardDesc.setText(card.getMainMeaning(Math.random()>0.5));
+        if(cardIterator.hasNext()){
+            currentCards.add(cardIterator.next());
 
-        File image = new File("src/main/resources/cards_imgs/" + card.getName() + ".jpg");
-        System.out.println(image.exists());
-        Image img = new Image(image.toURI().toURL().toString());
-        imagePane.setImage(img);
+            Card card = currentCards.get(currentCards.size() - 1);
+            boolean reverse = Math.random()>0.5;
+            choosedCardDesc.setText(card.getMainMeaning(reverse));
+
+            image_file = new File("src/main/resources/cards_imgs/" + card.getName() + ".jpg");
+            image = new Image(image_file.toURI().toURL().toString());
+            imagePane.setRotate(reverse?180:0);
+            imagePane.setImage(image);
+        }else{
+            System.out.println("карты кончились");
+        }
     }
+
+
 
     @FXML
     private void openThreeCardPage() throws IOException {
@@ -86,7 +110,11 @@ public class OneCardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cardsManager = CardsManager.getInstance();
 
-        getCardsStream();
+        try {
+            resetCards();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 
