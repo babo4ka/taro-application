@@ -72,6 +72,7 @@ public class OneCardController implements Initializable {
         image_file = new File("src/main/resources/cards_imgs/no_card.jpg");
         image = new Image(image_file.toURI().toURL().toString());
         imagePane.setImage(image);
+        imagePane.setRotate(0);
         choosedCardDesc.setText("Здесь будет описание карты");
     }
 

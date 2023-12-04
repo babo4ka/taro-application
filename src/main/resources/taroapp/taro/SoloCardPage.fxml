@@ -21,7 +21,7 @@
             <MenuButton fx:id="typeChoose" layoutX="41.0" layoutY="13.0" mnemonicParsing="false" onAction="#openThreeCardPage" text="Выбор типа" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
               <items>
                 <MenuItem fx:id="soloCardMenu" mnemonicParsing="false" text="Одна карта" />
-                <MenuItem fx:id="threeCardMenu" mnemonicParsing="false" text="Три карты" />
+                <MenuItem fx:id="threeCardMenu" onAction="#openThreeCardPage" mnemonicParsing="false" text="Три карты" />
               </items>
             </MenuButton>
          </children>

@@ -42,10 +42,10 @@ public class CardsManager {
                     case 1 -> mm = line;
                     case 2 -> mmr = line;
                     case 3 -> yn = line;
-                    case 4 -> pam = line;
-                    case 5 -> pamr = line;
-                    case 6 -> prm = line;
-                    case 7 -> prmr = line;
+                    case 4 -> prm = line;
+                    case 5 -> pam = line;
+                    case 6 -> prmr = line;
+                    case 7 -> pamr = line;
                     case 8 -> fm = line;
                     case 9 -> fmr = line;
                 }
