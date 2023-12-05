@@ -26,12 +26,12 @@
             </MenuButton>
          </children>
       </AnchorPane>
-      <Button fx:id="prevCardBtn" layoutX="28.0" layoutY="455.0" mnemonicParsing="false" text="Предыдущая" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="28.0">
+      <Button fx:id="prevCardBtn" onAction="#showPrevCard" layoutX="28.0" layoutY="455.0" mnemonicParsing="false" text="Предыдущая" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="28.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="toTheEndBtn" layoutX="131.0" layoutY="455.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="В конец" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="131.0">
+      <Button fx:id="toTheEndBtn" onAction="#showLastCard" layoutX="131.0" layoutY="455.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="В конец" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="131.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

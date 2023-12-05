@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import taroapp.taro.Card;
+import taroapp.taro.CardInfo;
 import taroapp.taro.CardsManager;
 import taroapp.taro.TaroApplication;
 
@@ -122,28 +123,27 @@ public class ThreeCardController implements Initializable {
         if(target.getId().equals("secondCard"))index = 1;
         if(target.getId().equals("thirdCard"))index = 2;
 
-        if(!cardsInfos[index].opened){
-            image_file = new File("src/main/resources/cards_imgs/" + cardsInfos[index].card.getName() + ".jpg");
-            image = new Image(image_file.toURI().toURL().toString());
-            target.setRotate(cardsInfos[index].reverse?180:0);
+        if(!cardsInfos[index].isOpened()){
+            image = cardsInfos[index].getCard().getImage();
+            target.setRotate(cardsInfos[index].isReverse()?180:0);
             target.setImage(image);
         }
 
         switch (mode){
             case 1 ->{
-                cardDesc.setText(cardsInfos[index].card.getYn());
+                cardDesc.setText(cardsInfos[index].getCard().getYn());
                 target.setRotate(0);
             }
 
             case 0->{
                 if(index == 0)
-                    cardDesc.setText(cardsInfos[index].card.getPastMeaning(cardsInfos[index].reverse));
+                    cardDesc.setText(cardsInfos[index].getCard().getPastMeaning(cardsInfos[index].isReverse()));
 
                 if(index == 1)
-                    cardDesc.setText(cardsInfos[index].card.getPresentMeaning(cardsInfos[index].reverse));
+                    cardDesc.setText(cardsInfos[index].getCard().getPresentMeaning(cardsInfos[index].isReverse()));
 
                 if(index == 2)
-                    cardDesc.setText(cardsInfos[index].card.getFutureMeaning(cardsInfos[index].reverse));
+                    cardDesc.setText(cardsInfos[index].getCard().getFutureMeaning(cardsInfos[index].isReverse()));
             }
         }
 
@@ -188,17 +188,4 @@ public class ThreeCardController implements Initializable {
         }
     }
 
-    private final class CardInfo{
-
-        private Card card;
-        private boolean reverse;
-        private boolean opened;
-
-
-        public CardInfo(Card card, boolean reverse, boolean opened) {
-            this.card = card;
-            this.reverse = reverse;
-            this.opened = opened;
-        }
-    }
 }

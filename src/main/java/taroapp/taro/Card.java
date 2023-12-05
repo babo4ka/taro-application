@@ -1,5 +1,10 @@
 package taroapp.taro;
 
+import javafx.scene.image.Image;
+
+import java.io.File;
+import java.net.MalformedURLException;
+
 public class Card {
 
     private final String name;
@@ -14,13 +19,18 @@ public class Card {
     private final String futureMeaning;
     private final String futureMeaningReverse;
 
+    private final Image image;
+
+    public Image getImage() {
+        return image;
+    }
 
     public Card(String name,
                 String mainMeaning, String mainMeaningReverse,
                 String yn,
                 String pastMeaning, String pastMeaningReverse,
                 String presentMeaning, String presentMeaningReverse,
-                String futureMeaning, String futureMeaningReverse) {
+                String futureMeaning, String futureMeaningReverse) throws MalformedURLException {
         this.name = name;
         this.mainMeaning = mainMeaning;
         this.mainMeaningReverse = mainMeaningReverse;
@@ -31,6 +41,9 @@ public class Card {
         this.presentMeaningReverse = presentMeaningReverse;
         this.futureMeaning = futureMeaning;
         this.futureMeaningReverse = futureMeaningReverse;
+
+        File image_file = new File("src/main/resources/cards_imgs/" + name + ".jpg");
+        this.image = new Image(image_file.toURI().toURL().toString());
     }
 
     public String getName() {
