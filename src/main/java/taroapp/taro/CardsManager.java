@@ -1,6 +1,7 @@
 package taroapp.taro;
 
 import java.io.*;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -19,15 +20,16 @@ public class CardsManager {
         return instance;
     }
 
-    public void loadCards() throws IOException {
-        File descsDir = new File("src/main/resources/cards_descs");
+    public void loadCards() throws IOException, URISyntaxException {
+        System.out.println(getClass().getResource("/cards_descs"));
+        File descsDir = new File(getClass().getResource("/cards_descs").toURI());
 
         for(File f : descsDir.listFiles()){
             createCard(f);
         }
     }
 
-    private void createCard(File descriptionFile) throws IOException {
+    private void createCard(File descriptionFile) throws IOException, URISyntaxException {
         FileReader fr = new FileReader(descriptionFile);
         BufferedReader br = new BufferedReader(fr);
 

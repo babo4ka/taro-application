@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 public class Card {
 
@@ -30,7 +31,7 @@ public class Card {
                 String yn,
                 String pastMeaning, String pastMeaningReverse,
                 String presentMeaning, String presentMeaningReverse,
-                String futureMeaning, String futureMeaningReverse) throws MalformedURLException {
+                String futureMeaning, String futureMeaningReverse) throws MalformedURLException, URISyntaxException {
         this.name = name;
         this.mainMeaning = mainMeaning;
         this.mainMeaningReverse = mainMeaningReverse;
@@ -42,7 +43,8 @@ public class Card {
         this.futureMeaning = futureMeaning;
         this.futureMeaningReverse = futureMeaningReverse;
 
-        File image_file = new File("src/main/resources/cards_imgs/" + name + ".jpg");
+//        System.out.println(getClass().getResource("/cards_imgs/" + name + ".jpg"));
+        File image_file = new File(getClass().getResource("/cards_imgs/" + name + ".jpg").toURI());
         this.image = new Image(image_file.toURI().toURL().toString());
     }
 
