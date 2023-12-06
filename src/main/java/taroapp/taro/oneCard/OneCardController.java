@@ -35,6 +35,9 @@ public class OneCardController implements Initializable {
     private Label typeLabel;
 
     @FXML
+    private Label cardsEndInfo;
+
+    @FXML
     private ImageView imagePane;
 
     @FXML
@@ -77,6 +80,7 @@ public class OneCardController implements Initializable {
         choosedCardDesc.setText("Здесь будет описание карты");
 
         tape.clear();
+        cardsEndInfo.setText("");
     }
 
     @FXML
@@ -93,47 +97,48 @@ public class OneCardController implements Initializable {
             imagePane.setImage(image);
 
             CardInfo ci = new CardInfo(card, reverse, false);
-            currentNode = new CardsTapeNode(ci);
-            tape.insert(currentNode);
+            tape.insert(ci);
+            currentNode = tape.getLast();
+            cardsEndInfo.setText("");
         }else{
-            System.out.println("карты кончились");
+            cardsEndInfo.setText("Карты кончились");
         }
     }
 
     @FXML
     private void showPrevCard() throws MalformedURLException {
-        if(currentNode.hasPrev()){
-            currentNode = currentNode.getPrev();
-            Card card = currentNode.getValue().getCard();
-            boolean reverse = currentNode.getValue().isReverse();
+        if(currentNode != null){
+            if(currentNode.hasPrev()){
+                currentNode = currentNode.getPrev();
+                Card card = currentNode.getValue().getCard();
+                boolean reverse = currentNode.getValue().isReverse();
 
-            choosedCardDesc.setText(card.getMainMeaning(reverse));
+                choosedCardDesc.setText(card.getMainMeaning(reverse));
 
-            image = card.getImage();
-            imagePane.setRotate(reverse?180:0);
-            imagePane.setImage(image);
-        }
-        else{
-            System.out.println("Нету больше карт");
+                image = card.getImage();
+                imagePane.setRotate(reverse?180:0);
+                imagePane.setImage(image);
+                cardsEndInfo.setText("");
+            }else{
+                cardsEndInfo.setText("Карт больше не было");
+            }
         }
     }
 
     @FXML
     private void showLastCard() throws MalformedURLException {
-//        CardsTapeNode node = null;
-//        while(tape.hasNext()){
-//            node = tape.getNextNode();
-//        }
-//
-//        Card card = node.getValue().getCard();
-//        boolean reverse = node.getValue().isReverse();
-//
-//        choosedCardDesc.setText(card.getMainMeaning(reverse));
-//
-//        image_file = new File("src/main/resources/cards_imgs/" + card.getName() + ".jpg");
-//        image = new Image(image_file.toURI().toURL().toString());
-//        imagePane.setRotate(reverse?180:0);
-//        imagePane.setImage(image);
+        currentNode = tape.getLast();
+        if(currentNode != null){
+            Card card = currentNode.getValue().getCard();
+            boolean reverse = currentNode.getValue().isReverse();
+
+            choosedCardDesc.setText(card.getMainMeaning(reverse));
+
+            image_file = new File("src/main/resources/cards_imgs/" + card.getName() + ".jpg");
+            image = new Image(image_file.toURI().toURL().toString());
+            imagePane.setRotate(reverse?180:0);
+            imagePane.setImage(image);
+        }
     }
 
 

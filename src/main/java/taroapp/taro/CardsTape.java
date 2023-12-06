@@ -11,14 +11,33 @@ public class CardsTape {
         return this.head;
     }
 
-    public CardsTape insert(CardsTapeNode node){
-        if(head == null){
-            head = node;
+    public CardsTapeNode getLast(){
+        CardsTapeNode last = this.head;
+        if(last == null)return null;
+
+        while(last.hasNext()){
+            last = last.getNext();
+        }
+
+        return last;
+    }
+
+    public CardsTape insert(CardInfo data){
+        CardsTapeNode new_node = new CardsTapeNode(data);
+
+        if(this.head == null){
+            this.head = new_node;
             return this;
         }
 
-        head.setNext(node);
-        node.setPrev(head);
+        CardsTapeNode last = this.head;
+
+        while(last.hasNext()){
+            last = last.getNext();
+        }
+
+        last.setNext(new_node);
+        new_node.setPrev(last);
         return this;
     }
 

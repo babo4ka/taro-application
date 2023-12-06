@@ -18,7 +18,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <MenuButton fx:id="typeChoose" layoutX="41.0" layoutY="13.0" mnemonicParsing="false" onAction="#openThreeCardPage" text="Выбор типа" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <MenuButton fx:id="typeChoose" layoutX="41.0" layoutY="13.0" mnemonicParsing="false" onAction="#openThreeCardPage" style="-fx-background-color: white;" text="Выбор типа" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
               <items>
                 <MenuItem fx:id="soloCardMenu" mnemonicParsing="false" text="Одна карта" />
                 <MenuItem fx:id="threeCardMenu" mnemonicParsing="false" onAction="#openThreeCardPage" text="Три карты" />
@@ -26,27 +26,32 @@
             </MenuButton>
          </children>
       </AnchorPane>
-      <Button fx:id="prevCardBtn" onAction="#showPrevCard" layoutX="28.0" layoutY="455.0" mnemonicParsing="false" text="Предыдущая" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="28.0">
+      <Button fx:id="prevCardBtn" layoutX="28.0" layoutY="455.0" mnemonicParsing="false" onAction="#showPrevCard" style="-fx-background-color: white;" text="Предыдущая" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="28.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="toTheEndBtn" onAction="#showLastCard" layoutX="131.0" layoutY="455.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="В конец" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="131.0">
+      <Button fx:id="toTheEndBtn" layoutX="131.0" layoutY="455.0" mnemonicParsing="false" onAction="#showLastCard" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: white;" text="В конец" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="131.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="nextCardBtn" layoutX="232.0" layoutY="455.0" mnemonicParsing="false" onAction="#getNextCard" prefHeight="25.0" prefWidth="88.0" text="Следующая" AnchorPane.bottomAnchor="20.0">
+      <Button fx:id="nextCardBtn" layoutX="232.0" layoutY="455.0" mnemonicParsing="false" onAction="#getNextCard" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: white;" text="Следующая" AnchorPane.bottomAnchor="20.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
       <Text fx:id="choosedCardDesc" fill="WHITE" layoutX="454.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Описание карты" wrappingWidth="411.13671875" AnchorPane.bottomAnchor="383.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="100.0" />
-      <Button fx:id="resetBtn" layoutX="553.0" layoutY="455.0" mnemonicParsing="false" onAction="#resetCards" prefHeight="25.0" prefWidth="123.0" text="Сброс" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="150.0">
+      <Button fx:id="resetBtn" layoutX="553.0" layoutY="455.0" mnemonicParsing="false" onAction="#resetCards" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: white;" text="Сброс" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="150.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
       <ImageView fx:id="imagePane" fitHeight="300.0" fitWidth="200.0" layoutX="57.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0" />
+      <Label fx:id="cardsEndInfo" alignment="CENTER" layoutX="386.0" layoutY="61.0" textFill="WHITE" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
