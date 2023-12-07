@@ -23,6 +23,7 @@ import taroapp.taro.TaroApplication;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 
@@ -72,13 +73,13 @@ public class ThreeCardController implements Initializable {
 
 
     @FXML
-    private void resetCards() throws MalformedURLException {
+    private void resetCards() throws MalformedURLException, URISyntaxException {
         loadedCards = cardsManager.getCards();
         Collections.shuffle(loadedCards);
 
         cardIterator = loadedCards.iterator();
 
-        image_file = new File("src/main/resources/cards_imgs/no_card.jpg");
+        image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/no_card.jpg").toURI());
         image = new Image(image_file.toURI().toURL().toString());
         firstCard.setImage(image);
         firstCard.setRotate(0);
@@ -94,7 +95,7 @@ public class ThreeCardController implements Initializable {
 
     private CardInfo [] cardsInfos = new CardInfo[3];
     @FXML
-    private void makePreds() throws MalformedURLException {
+    private void makePreds() throws MalformedURLException, URISyntaxException {
         for(int i =0; i<cardsInfos.length; i++){
             if(cardIterator.hasNext()){
                 Card card = cardIterator.next();
@@ -103,7 +104,7 @@ public class ThreeCardController implements Initializable {
             }
         }
 
-        image_file = new File("src/main/resources/cards_imgs/hidden_card.jpg");
+        image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/hidden_card.jpg").toURI());
         image = new Image(image_file.toURI().toURL().toString());
         firstCard.setImage(image);
         firstCard.setRotate(0);
@@ -150,7 +151,7 @@ public class ThreeCardController implements Initializable {
     }
 
     @FXML
-    private void switchType(ActionEvent event) throws MalformedURLException {
+    private void switchType(ActionEvent event) throws MalformedURLException, URISyntaxException {
         switch (((MenuItem)event.getSource()).getId()){
             case "ppfChoose" -> {
                 mode = 0;
@@ -184,6 +185,8 @@ public class ThreeCardController implements Initializable {
         try {
             resetCards();
         } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }

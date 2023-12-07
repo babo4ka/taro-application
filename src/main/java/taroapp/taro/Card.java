@@ -3,7 +3,7 @@ package taroapp.taro;
 import javafx.scene.image.Image;
 
 import java.io.File;
-import java.net.MalformedURLException;
+import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class Card {
@@ -31,7 +31,7 @@ public class Card {
                 String yn,
                 String pastMeaning, String pastMeaningReverse,
                 String presentMeaning, String presentMeaningReverse,
-                String futureMeaning, String futureMeaningReverse) throws MalformedURLException, URISyntaxException {
+                String futureMeaning, String futureMeaningReverse) throws IOException, URISyntaxException {
         this.name = name;
         this.mainMeaning = mainMeaning;
         this.mainMeaningReverse = mainMeaningReverse;
@@ -43,8 +43,9 @@ public class Card {
         this.futureMeaning = futureMeaning;
         this.futureMeaningReverse = futureMeaningReverse;
 
-//        System.out.println(getClass().getResource("/cards_imgs/" + name + ".jpg"));
-        File image_file = new File(getClass().getResource("/cards_imgs/" + name + ".jpg").toURI());
+//        System.out.println(getClass().getClassLoader().getResource("/cards_imgs/" + name + ".jpg"));
+//        System.out.println(getClass().getClassLoader().getResourceAsStream("taroapp/taro/cards_imgs").read());
+        File image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/" + name + ".jpg").toURI());
         this.image = new Image(image_file.toURI().toURL().toString());
     }
 

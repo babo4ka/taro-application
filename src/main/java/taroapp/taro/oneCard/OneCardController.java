@@ -18,6 +18,7 @@ import taroapp.taro.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 
@@ -66,14 +67,14 @@ public class OneCardController implements Initializable {
     private CardsTapeNode currentNode;
 
     @FXML
-    private void resetCards() throws MalformedURLException {
+    private void resetCards() throws MalformedURLException, URISyntaxException {
         loadedCards = cardsManager.getCards();
         Collections.shuffle(loadedCards);
 
         currentCards = new ArrayList<>();
         cardIterator = loadedCards.iterator();
 
-        image_file = new File("src/main/resources/cards_imgs/no_card.jpg");
+        image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/no_card.jpg").toURI());
         image = new Image(image_file.toURI().toURL().toString());
         imagePane.setImage(image);
         imagePane.setRotate(0);
@@ -126,7 +127,7 @@ public class OneCardController implements Initializable {
     }
 
     @FXML
-    private void showLastCard() throws MalformedURLException {
+    private void showLastCard() throws MalformedURLException, URISyntaxException {
         currentNode = tape.getLast();
         if(currentNode != null){
             Card card = currentNode.getValue().getCard();
@@ -134,7 +135,7 @@ public class OneCardController implements Initializable {
 
             choosedCardDesc.setText(card.getMainMeaning(reverse));
 
-            image_file = new File("src/main/resources/cards_imgs/" + card.getName() + ".jpg");
+            image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/" + card.getName() + ".jpg").toURI());
             image = new Image(image_file.toURI().toURL().toString());
             imagePane.setRotate(reverse?180:0);
             imagePane.setImage(image);
@@ -161,6 +162,8 @@ public class OneCardController implements Initializable {
         try {
             resetCards();
         } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }

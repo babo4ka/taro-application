@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class CardsManager {
 
@@ -21,8 +20,8 @@ public class CardsManager {
     }
 
     public void loadCards() throws IOException, URISyntaxException {
-        System.out.println(getClass().getResource("/cards_descs"));
-        File descsDir = new File(getClass().getResource("/cards_descs").toURI());
+        System.out.println(getClass().getResource("/taroapp/taro/cards_descs"));
+        File descsDir = new File(getClass().getResource("/taroapp/taro/cards_descs").toURI());
 
         for(File f : descsDir.listFiles()){
             createCard(f);
