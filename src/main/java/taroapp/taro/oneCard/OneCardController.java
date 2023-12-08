@@ -81,6 +81,7 @@ public class OneCardController implements Initializable {
         choosedCardDesc.setText("Здесь будет описание карты");
 
         tape.clear();
+        currentNode = tape.getLast();
         cardsEndInfo.setText("");
     }
 
