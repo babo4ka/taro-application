@@ -8,6 +8,8 @@ module taroapp.taro {
     exports taroapp.taro;
     exports taroapp.taro.oneCard;
     exports taroapp.taro.threeCard;
+    exports taroapp.taro.chooseDirPage;
     opens taroapp.taro.oneCard to javafx.fxml;
     opens taroapp.taro.threeCard to javafx.fxml;
+    opens taroapp.taro.chooseDirPage to javafx.fxml;
 }

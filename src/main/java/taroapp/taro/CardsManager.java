@@ -7,6 +7,8 @@ import java.util.List;
 
 public class CardsManager {
 
+    private static File cardsInfoDirectory;
+
     private static CardsManager instance;
 
     private CardsManager(){}
@@ -19,9 +21,17 @@ public class CardsManager {
         return instance;
     }
 
+    public static void setCardsInfoDirectory(File file){
+        cardsInfoDirectory = file;
+    }
+
+    public static File getCardsInfoDirectory(){
+        return cardsInfoDirectory;
+    }
+
     public void loadCards() throws IOException, URISyntaxException {
-        System.out.println(getClass().getResource("/taroapp/taro/cards_descs"));
-        File descsDir = new File(getClass().getResource("/taroapp/taro/cards_descs").toURI());
+        File descsDir = new File(cardsInfoDirectory.getAbsolutePath() + "/cards_descs");
+        //File descsDir = new File(getClass().getResource("/taroapp/taro/cards_descs").toURI());
 
         for(File f : descsDir.listFiles()){
             createCard(f);

@@ -45,7 +45,9 @@ public class Card {
 
 //        System.out.println(getClass().getClassLoader().getResource("/cards_imgs/" + name + ".jpg"));
 //        System.out.println(getClass().getClassLoader().getResourceAsStream("taroapp/taro/cards_imgs").read());
-        File image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/" + name + ".jpg").toURI());
+        File image_file = new File(CardsManager.getCardsInfoDirectory().getAbsolutePath() +
+                "/cards_imgs/" + name + ".jpg");
+        //File image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/" + name + ".jpg").toURI());
         this.image = new Image(image_file.toURI().toURL().toString());
     }
 

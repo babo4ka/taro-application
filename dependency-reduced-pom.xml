@@ -4,7 +4,7 @@
   <groupId>taro-app</groupId>
   <artifactId>Taro</artifactId>
   <name>Taro</name>
-  <version>v1</version>
+  <version>2.0</version>
   <build>
     <plugins>
       <plugin>
@@ -94,6 +94,8 @@
     </dependency>
   </dependencies>
   <properties>
+    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>5.9.2</junit.version>
   </properties>

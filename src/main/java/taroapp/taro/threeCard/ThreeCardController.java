@@ -79,7 +79,10 @@ public class ThreeCardController implements Initializable {
 
         cardIterator = loadedCards.iterator();
 
-        image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/no_card.jpg").toURI());
+        image_file = new File(CardsManager.getCardsInfoDirectory().getAbsolutePath() +
+                "/cards_imgs/no_card.jpg");
+
+        //image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/no_card.jpg").toURI());
         image = new Image(image_file.toURI().toURL().toString());
         firstCard.setImage(image);
         firstCard.setRotate(0);
@@ -104,7 +107,9 @@ public class ThreeCardController implements Initializable {
             }
         }
 
-        image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/hidden_card.jpg").toURI());
+        image_file = new File(CardsManager.getCardsInfoDirectory().getAbsolutePath() +
+                "/cards_imgs/hidden_card.jpg");
+        //image_file = new File(getClass().getResource("/taroapp/taro/cards_imgs/hidden_card.jpg").toURI());
         image = new Image(image_file.toURI().toURL().toString());
         firstCard.setImage(image);
         firstCard.setRotate(0);
@@ -184,9 +189,7 @@ public class ThreeCardController implements Initializable {
 
         try {
             resetCards();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        } catch (URISyntaxException e) {
+        } catch (MalformedURLException | URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
